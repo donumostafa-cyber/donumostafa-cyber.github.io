@@ -80,7 +80,7 @@ body::after{
     clamp(200px,33vw,560px) auto,
     clamp(120px,20vw,330px) auto,
     clamp(120px,20vw,330px) auto;
-  opacity:.9;
+  opacity:.6;
 }
 
 
