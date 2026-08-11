@@ -170,8 +170,8 @@
       return '<article class="post-item">' +
         '<a class="post-link' + (thumb ? ' has-thumb' : '') + '" href="' + root + p.url + '">' +
           '<div class="post-text">' +
-            '<h3 class="post-title">' + esc(p.title) + '</h3>' +
             '<div class="post-date">' + meta + stars + '</div>' +
+            '<h3 class="post-title">' + esc(p.title) + '</h3>' +
             (byline.length ? '<div class="post-byline">' + byline.join(' · ') + '</div>' : '') +
             '<p class="post-excerpt">' + esc(p.excerpt) + '</p>' +
             '<span class="tag">' + esc(p.tag) + '</span>' +
