@@ -79,6 +79,11 @@
 }
 .preview-pages{width:min(210mm,100%)}
 
+.page-frame{
+  width:100%;
+  margin:0 auto 22px;
+}
+
 .paper-page{
   width:100%;
   background:var(--sheet-bg,#f7f1e3);
@@ -87,7 +92,7 @@
   border:1px solid var(--line);
   border-radius:6px;
   padding:18mm 20mm;
-  margin:0 auto 22px;
+  margin:0;
   position:relative;
 }
 .poem-title{text-align:center;font-weight:700;margin:0 0 18mm}
@@ -123,8 +128,12 @@
 @media (max-width:900px){
   .app{grid-template-columns:1fr}
   .controls{position:relative;top:0;max-height:none}
-  .paper-page{padding:14mm 9mm}
-  .bayt{grid-template-columns:1.8em minmax(0,1fr) 20px minmax(0,1fr)}
+  .page-frame{overflow:hidden}
+  .page-frame .paper-page{
+  width:210mm;
+  margin:0;
+  transform-origin:top right;
+}
 }
 
 
@@ -140,6 +149,7 @@
   border-radius:0 !important;
   box-shadow:none !important;
   overflow:visible !important;
+  transform:none !important;
 }
 .export-sheet .bayt{grid-template-columns:42px minmax(0,1fr) 38px minmax(0,1fr) !important}
 .export-sheet .sadr,
@@ -150,10 +160,12 @@
   .app{display:block}
   .preview-wrap{padding:0;display:block}
   .preview-pages{width:100%}
+  .page-frame{height:auto !important;overflow:visible !important;margin:0}
   .paper-page{
     width:100%;box-shadow:none;border:0;margin:0;
+    transform:none !important;
     break-after:page;page-break-after:always;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  .paper-page:last-child{break-after:auto;page-break-after:auto}
+  .page-frame:last-child .paper-page{break-after:auto;page-break-after:auto}
 }
