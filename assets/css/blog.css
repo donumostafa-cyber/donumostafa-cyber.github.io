@@ -160,7 +160,7 @@
 .chip.is-active{background:var(--wine);color:#fdf6ea;border-color:var(--wine)}
 
 
-.prose img{display:block;margin:1.6em auto;max-width:60%;height:auto;cursor:zoom-in;transition:transform .15s ease}
+.prose img{display:block;margin:1.6em auto;height:auto;cursor:zoom-in;transition:transform .15s ease}
 .prose img:hover{transform:scale(1.02)}
 .prose a img{cursor:pointer}
 @media (min-width:700px){
