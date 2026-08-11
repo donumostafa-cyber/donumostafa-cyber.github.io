@@ -10,7 +10,7 @@ window.POSTS = [
     date: '2026-08-06',
     tag: 'روايات قرأتها',
     url: 'posts/lady-susan/',
-    image: 'https://blogger.googleusercontent.com/img/a/AVvXsEg5_mJHrZB2wWgUts4eCqUVfNxlMOhDwHptA-Rs1cPuIGrGF3IWd1ulKUw5e7Anoq7T0Z7KjpT4Bwgp5IM3yvj3w-wLC2d1DbvNQBaNIMJMbBewSnDdo4IS7TT2lLt8KhiYyVLYuoJfe4w_EcvTsjI7YBwpGC3D3usMonKENhaKwx3Yz9EpTEBsLuqJiTQ',
+    image: '/assets/img/posts/lady-susan-msnwlozb.webp',
     author: 'جَاين أوستن',
     pages: '116',
     rating: 1,
