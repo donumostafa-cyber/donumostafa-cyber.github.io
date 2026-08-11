@@ -160,10 +160,11 @@
 .chip.is-active{background:var(--wine);color:#fdf6ea;border-color:var(--wine)}
 
 
-.prose img{display:block;margin:1.6em auto;max-width:100%;height:auto;cursor:zoom-in}
+.prose img{display:block;margin:1.6em auto;max-width:60%;height:auto;cursor:zoom-in;transition:transform .15s ease}
+.prose img:hover{transform:scale(1.02)}
 .prose a img{cursor:pointer}
 @media (min-width:700px){
-  .prose img{max-width:86%}   
+  .prose img{max-width:380px}
 }
 .prose iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radius);margin:1.6em 0}
 .prose a img{margin:0}
