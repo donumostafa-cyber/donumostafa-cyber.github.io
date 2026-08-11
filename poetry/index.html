@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>منسّق الشعر العربي | خالد الحمدان</title>
+<meta name="description" content="أداة تصفّ القصيدة صدرًا وعجزًا على صفحة نظيفة، وتصدّرها صورة PNG أو ملف PDF.">
+<link rel="canonical" href="https://khalidreads.github.io/poetry/">
+<meta property="og:site_name" content="خالد الحمدان — مدونة قراءات">
+<meta property="og:type" content="website">
+<meta property="og:title" content="منسّق الشعر العربي | خالد الحمدان">
+<meta property="og:description" content="أداة تصفّ القصيدة صدرًا وعجزًا على صفحة نظيفة، وتصدّرها صورة PNG أو ملف PDF.">
+<meta property="og:url" content="https://khalidreads.github.io/poetry/">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:image" content="https://khalidreads.github.io/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fdfaf4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Lateef:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@400;600&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/poetry.css">
+</head>
+
+<body data-root="../" data-page="poetry">
+<header id="siteHeader"><noscript><nav class="wrap" aria-label="أقسام الموقع" style="padding:16px 20px;font-size:15px"><a href="../">الرئيسية</a> · <a href="../archive/">كل التدوينات</a> · <a href="../library/">مكتبتي</a> · <a href="../poetry/">منسّق الشعر</a> · <a href="../timeline/">الخطوط الزمنية</a></nav></noscript></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>منسّق الشعر العربي</h1>
+    <p class="lede">اكتب القصيدة، فتُصَفّ صدرًا وعجزًا على صفحة نظيفة تحفظها صورةً أو ملف PDF.</p>
+  </div>
+
+  <div class="app">
+    <aside class="controls">
+      <h2>الإعدادات</h2>
+      <p class="hint">اكتب كل شطر في سطر مستقل. كل شطرين يُكوّنان بيتًا واحدًا، وتُقسَّم القصيدة تلقائيًا إلى صفحات، كل صفحة حتى ١٣ بيتًا.</p>
+
+      <label for="title">عنوان القصيدة</label>
+      <input id="title" type="text" placeholder="عنوان القصيدة">
+
+      <label for="poemInput">نص القصيدة</label>
+      <textarea id="poemInput">ومن راءَ مني خصلةً لا يُحِبُّها
+فلستُ على كسبي رضاهُ بجاهدِ
+
+فإن التي باليتُ يومًا برأيِها
+تولَّتْ وما باليتُ بعدُ بناقدِ</textarea>
+
+      <div class="row">
+        <div>
+          <label for="bgColor">لون الخلفية</label>
+          <input id="bgColor" type="color" value="#f7f1e3">
+        </div>
+        <div>
+          <label for="textColor">لون الخط</label>
+          <input id="textColor" type="color" value="#201a17">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="accentColor">لون الفاصل</label>
+          <input id="accentColor" type="color" value="#8a6a3d">
+        </div>
+        <div>
+          <label for="fontSize">حجم خط الأبيات: <span id="fontSizeValue">25</span></label>
+          <input id="fontSize" type="range" min="18" max="42" value="25">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="titleFontSize">حجم العنوان: <span id="titleFontSizeValue">30</span></label>
+          <input id="titleFontSize" type="range" min="18" max="48" value="30">
+        </div>
+        <div>
+          <label for="poetFontSize">حجم اسم الشاعر: <span id="poetFontSizeValue">18</span></label>
+          <input id="poetFontSize" type="range" min="12" max="32" value="18">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="bahrFontSize">حجم اسم البحر: <span id="bahrFontSizeValue">18</span></label>
+          <input id="bahrFontSize" type="range" min="12" max="32" value="18">
+        </div>
+      </div>
+
+      <label for="fontFamily">الخط</label>
+      <select id="fontFamily">
+        <option value="Amiri">أميري — Amiri</option>
+        <option value="Noto Naskh Arabic">نسخ — Noto Naskh Arabic</option>
+        <option value="Scheherazade New">شهرزاد — Scheherazade New</option>
+        <option value="Lateef">لطيف — Lateef</option>
+        <option value="Aref Ruqaa">عارف رقعة — Aref Ruqaa</option>
+        <option value="Reem Kufi">ريم كوفي — Reem Kufi</option>
+      </select>
+
+      <div id="fontSample" class="font-sample" style="font-family:Amiri,serif">أبجد هوز حطي كلمن</div>
+
+      <div class="row">
+        <div>
+          <label for="numberVerses">ترقيم الأبيات</label>
+          <select id="numberVerses">
+            <option value="off">بدون ترقيم</option>
+            <option value="on">ترقيم الأبيات</option>
+          </select>
+        </div>
+        <div>
+          <label for="startNumber">رقم البداية</label>
+          <input id="startNumber" type="number" min="1" value="1">
+        </div>
+      </div>
+
+      <label for="separator">الفاصل بين الشطرين</label>
+      <select id="separator">
+        <option value="" selected>بلا فاصل</option>
+        <option value="✦">✦</option>
+        <option value="◆">◆</option>
+        <option value="۞">۞</option>
+        <option value="•">•</option>
+      </select>
+
+      <label for="bahrInput">بحر القصيدة (اختياري)</label>
+      <input id="bahrInput" type="text" placeholder="مثال: البحر الطويل">
+
+      <label for="poetInput">اسم الشاعر (اختياري)</label>
+      <input id="poetInput" type="text" placeholder="اسم الشاعر">
+
+      <button id="printBtn">تصدير PDF</button>
+      <button id="pngBtn">تصدير PNG</button>
+      <button id="resetBtn" class="secondary">إعادة الإعدادات الافتراضية</button>
+    </aside>
+
+    <section class="preview-wrap" aria-label="معاينة الصفحة">
+      <div class="preview-pages" id="previewPages"></div>
+    </section>
+  </div>
+</main>
+
+<footer id="siteFooter"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/poetry.js"></script>
+</body>
+</html>

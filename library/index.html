@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مكتبتي | خالد الحمدان</title>
+<meta name="description" content="سجل قراءاتي وتقييماتي: الكتب المقروءة وما أنوي قراءته، مع البحث والفرز.">
+<link rel="canonical" href="https://khalidreads.github.io/library/">
+<meta property="og:site_name" content="خالد الحمدان — مدونة قراءات">
+<meta property="og:type" content="website">
+<meta property="og:title" content="مكتبتي | خالد الحمدان">
+<meta property="og:description" content="سجل قراءاتي وتقييماتي: الكتب المقروءة وما أنوي قراءته، مع البحث والفرز.">
+<meta property="og:url" content="https://khalidreads.github.io/library/">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:image" content="https://khalidreads.github.io/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fdfaf4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/library.css">
+</head>
+
+<body data-root="../" data-page="library">
+<header id="siteHeader"><noscript><nav class="wrap" aria-label="أقسام الموقع" style="padding:16px 20px;font-size:15px"><a href="../">الرئيسية</a> · <a href="../archive/">كل التدوينات</a> · <a href="../library/">مكتبتي</a> · <a href="../poetry/">منسّق الشعر</a> · <a href="../timeline/">الخطوط الزمنية</a></nav></noscript></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>مكتبتي</h1>
+    <p class="lede">سجل قراءاتي وتقييماتي. اضغط على أي كتاب لقراءة مراجعتي كاملة.</p>
+  </div>
+
+  <div class="stat-row">
+    <div><b id="statBooks">—</b><span>كتاب</span></div>
+    <div><b id="statRead">—</b><span>مقروء</span></div>
+    <div><b id="statUnread">—</b><span>غير مقروء</span></div>
+    <div><b id="statRating">—</b><span>متوسط التقييم</span></div>
+  </div>
+
+  <section class="controls" aria-label="أدوات المكتبة">
+    <input id="searchInput" class="control" type="search" placeholder="ابحث عن كتاب أو مؤلف أو ناشر…">
+    <select id="shelfFilter" class="control" aria-label="تصفية بحالة القراءة">
+      <option value="all">كل الكتب</option>
+      <option value="read">المقروءة</option>
+      <option value="currently-reading">أقرأها الآن</option>
+      <option value="to-read">أرغب في قراءتها</option>
+    </select>
+    <select id="sortSelect" class="control" aria-label="ترتيب الكتب">
+      <option value="date-desc">الأحدث قراءة</option>
+      <option value="date-asc">الأقدم قراءة</option>
+      <option value="rating-desc">الأعلى تقييمًا</option>
+      <option value="pages-desc">الأكبر حجمًا</option>
+      <option value="title">العنوان</option>
+    </select>
+  </section>
+  <section class="controls secondary" aria-label="مزيد من الفلاتر">
+    <select id="authorFilter" class="control" aria-label="تصفية بالمؤلف">
+      <option value="all">كل المؤلفين</option>
+    </select>
+    <select id="ratingFilter" class="control" aria-label="تصفية بالتقييم">
+      <option value="all">كل التقييمات</option>
+      <option value="5">★★★★★</option>
+      <option value="4">★★★★☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="1">★☆☆☆☆</option>
+      <option value="0">بلا تقييم</option>
+    </select>
+    <select id="yearFilter" class="control" aria-label="تصفية بسنة القراءة">
+      <option value="all">كل سنوات القراءة</option>
+    </select>
+    <button id="resetFilters" class="control control-reset" type="button">مسح الفلاتر</button>
+  </section>
+
+  <div class="result-note" id="resultNote">جارٍ تحميل المكتبة…</div>
+
+  <section class="library-section" id="readSection">
+    <div class="section-heading">
+      <h2>الكتب المقروءة</h2>
+      <span id="readCount">—</span>
+    </div>
+    <div class="book-grid" id="readGrid"></div>
+  </section>
+
+  <section class="library-section" id="unreadSection">
+    <div class="section-heading">
+      <h2>لم أقرأها بعد</h2>
+      <span id="unreadCount">—</span>
+    </div>
+    <div class="book-grid" id="unreadGrid"></div>
+  </section>
+</main>
+
+<div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="إغلاق">×</button>
+    <div class="modal-layout">
+      <div class="modal-cover-wrap" id="modalCoverWrap"></div>
+      <div>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-author" id="modalAuthor"></div>
+        <div class="stars" id="modalStars"></div>
+        <div class="modal-details" id="modalDetails"></div>
+        <div class="modal-review" id="modalReview"></div>
+        <a class="modal-link" id="modalLink" href="#" target="_blank" rel="noopener">صفحة الكتاب في Goodreads ←</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="siteFooter"></footer>
+
+<script src="../assets/js/site.js"></script>
+<script src="../assets/data/books.js"></script>
+<script src="../assets/data/covers.js"></script>
+<script src="../assets/js/library.js"></script>
+</body>
+</html>

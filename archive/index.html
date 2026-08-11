@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>كل التدوينات | خالد الحمدان</title>
+<meta name="description" content="أرشيف تدوينات مدونة خالد الحمدان، مرتبة من الأحدث.">
+<link rel="canonical" href="https://khalidreads.github.io/archive/">
+<meta property="og:site_name" content="خالد الحمدان — مدونة قراءات">
+<meta property="og:type" content="website">
+<meta property="og:title" content="كل التدوينات | خالد الحمدان">
+<meta property="og:description" content="أرشيف تدوينات مدونة خالد الحمدان، مرتبة من الأحدث.">
+<meta property="og:url" content="https://khalidreads.github.io/archive/">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:image" content="https://khalidreads.github.io/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fdfaf4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/blog.css">
+</head>
+
+<body data-root="../" data-page="archive">
+<header id="siteHeader"><noscript><nav class="wrap" aria-label="أقسام الموقع" style="padding:16px 20px;font-size:15px"><a href="../">الرئيسية</a> · <a href="../archive/">كل التدوينات</a> · <a href="../library/">مكتبتي</a> · <a href="../poetry/">منسّق الشعر</a> · <a href="../timeline/">الخطوط الزمنية</a></nav></noscript></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>كل التدوينات</h1>
+    <p class="lede">مرتبة من الأحدث إلى الأقدم.</p>
+  </div>
+
+  <div class="search-box">
+    <input id="postSearch" type="search" placeholder="ابحث في التدوينات… (العنوان أو المؤلف أو التصنيف)"
+           aria-label="بحث في التدوينات">
+  </div>
+  <div class="filter-bar" id="labelFilter"></div>
+  <div class="post-list" id="allPosts"></div>
+</main>
+
+<footer id="siteFooter"></footer>
+
+<script src="../assets/data/posts.js"></script>
+<script src="../assets/data/posts-blogger.js"></script>
+<script src="../assets/js/site.js"></script>
+<script>renderLabelFilter('labelFilter', 'allPosts'); bindSearch('postSearch', 'allPosts'); renderPosts('allPosts');</script>
+</body>
+</html>

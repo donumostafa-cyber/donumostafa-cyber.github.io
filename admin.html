@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>لوحة الكتابة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/blog.css">
+<style>
+  body::after{opacity:.3}
+
+  .admin-head{
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:16px 0;border-bottom:1px solid var(--line);margin-bottom:22px;
+  }
+  .admin-head h1{font-family:var(--display);font-size:26px;margin:0}
+  .admin-head .spacer{margin-inline-start:auto}
+
+  .panel{
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);
+    padding:22px;margin-bottom:18px;
+  }
+  .panel > h2{font-family:var(--literary);font-size:22px;margin:0 0 4px}
+  .panel > .desc{margin:0 0 16px;color:var(--ink-soft);font-size:15px}
+  details.panel > summary{
+    cursor:pointer;font-family:var(--literary);font-size:22px;
+    list-style:none;display:flex;align-items:center;gap:10px;
+  }
+  details.panel > summary::-webkit-details-marker{display:none}
+  details.panel > summary::after{content:"▾";color:var(--gold);font-size:16px}
+  details.panel[open] > summary{margin-bottom:16px}
+
+  .field{margin-bottom:14px}
+  .field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+  .field .hint{font-size:13px;color:var(--ink-faint);margin-top:5px;line-height:1.7}
+  .field input,.field select,.field textarea{
+    width:100%;font:inherit;font-size:16px;
+    border:1px solid var(--line);border-radius:11px;
+    background:var(--paper);color:var(--ink);padding:11px 13px;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--wine);box-shadow:0 0 0 3px rgba(122,36,56,.1);
+  }
+  .field textarea{min-height:76px;resize:vertical;line-height:1.85}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  @media (max-width:760px){.row2,.row3{grid-template-columns:1fr}}
+  .mono{font-family:var(--mono);direction:ltr;text-align:left}
+
+  .rating-pick{display:flex;align-items:center;gap:4px;direction:rtl}
+  .rating-pick button{
+    font-size:30px;line-height:1;background:none;border:0;cursor:pointer;
+    color:var(--line);padding:0 2px;transition:color .12s ease,transform .12s ease;
+  }
+  .rating-pick button:hover{transform:scale(1.15)}
+  .rating-pick button.on{color:var(--wine)}
+  .rating-pick .clear{
+    font-size:13px;font-family:var(--body);color:var(--ink-faint);
+    margin-inline-start:10px;cursor:pointer;
+  }
+  .rating-pick .clear:hover{color:var(--wine)}
+
+  .tools{
+    display:flex;flex-wrap:wrap;gap:5px;align-items:center;
+    padding:9px;background:var(--paper-2);
+    border:1px solid var(--line);border-bottom:0;
+    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+    position:sticky;top:0;z-index:6;
+  }
+  .tools button{
+    font:inherit;font-size:14.5px;cursor:pointer;
+    border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);padding:6px 11px;border-radius:9px;
+  }
+  .tools button:hover{background:var(--blossom-pale);border-color:var(--blossom)}
+  .tools button.on{background:var(--wine);color:#fdf6ea;border-color:var(--wine)}
+  .tools .sep{width:1px;align-self:stretch;background:var(--line);margin:0 4px}
+  .tools .swatch{
+    width:26px;height:26px;padding:0;border-radius:50%;border:2px solid var(--paper);
+    box-shadow:0 0 0 1px var(--line);
+  }
+  .tools input[type=color]{
+    width:34px;height:30px;padding:2px;border:1px solid var(--line);
+    border-radius:8px;background:var(--paper);cursor:pointer;
+  }
+
+  .stage{
+    border:1px solid var(--line);
+    border-radius:0 0 var(--radius-lg) var(--radius-lg);
+    background:var(--paper);
+    padding:clamp(20px,3.4vw,36px);
+  }
+  #headPreview h1{
+    font-family:var(--literary);
+    font-size:clamp(28px,4.6vw,46px);margin:10px 0 12px;
+  }
+  #editor{
+    outline:none;min-height:320px;
+    border-top:1px dashed var(--line);padding-top:22px;margin-top:18px;
+  }
+  #editor:focus{border-top-color:var(--blossom)}
+  #editor:empty::before{content:"اكتب التدوينة هنا…";color:var(--ink-faint)}
+  #editor img{max-width:100%;height:auto}
+
+  #ctxMenu{
+    position:fixed;z-index:200;display:none;
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 20px 50px rgba(40,25,18,.25);
+    padding:7px;min-width:215px;
+  }
+  #ctxMenu.show{display:block}
+  #ctxMenu button{
+    display:flex;width:100%;align-items:center;gap:10px;
+    font:inherit;font-size:15.5px;text-align:right;
+    background:none;border:0;cursor:pointer;color:var(--ink);
+    padding:9px 12px;border-radius:9px;
+  }
+  #ctxMenu button:hover{background:var(--blossom-pale)}
+  #ctxMenu hr{border:0;border-top:1px solid var(--line);margin:6px 4px}
+
+  /* المربع المنبثق لكتابة الأبيات */
+  .poem-modal{
+    position:fixed;inset:0;z-index:90;display:none;
+    align-items:center;justify-content:center;
+    background:rgba(36,31,29,.45);padding:18px;
+  }
+  .poem-modal.open{display:flex}
+  .poem-modal .box{
+    width:min(560px,100%);
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius-lg);box-shadow:var(--shadow);
+    padding:24px;
+  }
+  .poem-modal h3{margin:0 0 6px;font-family:var(--literary);font-size:22px}
+  .poem-modal .hint{color:var(--ink-soft);font-size:14px;margin:0 0 12px;line-height:1.9}
+  .poem-modal textarea{
+    width:100%;min-height:180px;resize:vertical;
+    font:inherit;font-size:17px;line-height:2.1;
+    padding:12px 14px;border:1px solid var(--line);border-radius:12px;
+    background:var(--paper-2);color:var(--ink);
+  }
+  .poem-modal textarea:focus{outline:none;border-color:var(--wine);box-shadow:0 0 0 3px rgba(122,36,56,.1)}
+  .poem-modal .actions{display:flex;gap:10px;margin-top:14px}
+
+  .log{
+    font-family:var(--mono);font-size:13px;direction:ltr;text-align:left;
+    background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;max-height:230px;overflow:auto;white-space:pre-wrap;
+    line-height:1.75;margin-top:14px;display:none;
+  }
+  .log.show{display:block}
+  .log .ok{color:#2f6b45}
+  .log .err{color:var(--wine)}
+  .log .dim{color:var(--ink-faint)}
+
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .status-dot{
+    display:inline-block;width:9px;height:9px;border-radius:50%;
+    background:var(--ink-faint);margin-inline-end:7px;
+  }
+  .status-dot.on{background:#2f8b57}
+  .status-dot.off{background:var(--wine)}
+  .warn{
+    background:linear-gradient(180deg,rgba(243,218,222,.55),rgba(243,218,222,.2));
+    border:1px solid var(--blossom-pale);border-radius:var(--radius);
+    padding:16px 18px;font-size:16px;line-height:1.9;margin-bottom:18px;
+  }
+  .warn strong{color:var(--wine-deep)}
+
+  .btn.danger{border-color:var(--wine);color:var(--wine)}
+  .btn.danger:hover:not(:disabled){background:var(--wine);color:#fdf6ea}
+  .btn.danger:disabled{opacity:.4;cursor:not-allowed}
+</style>
+</head>
+
+<body data-root="" data-page="">
+<main class="wrap">
+
+  <div class="admin-head">
+    <span class="seal" aria-hidden="true">خ</span>
+    <h1>لوحة الكتابة</h1>
+    <span class="spacer"></span>
+    <span id="connState"><span class="status-dot off"></span><span class="muted">غير متصل</span></span>
+    <a class="btn btn-ghost" href="./">المدونة</a>
+  </div>
+
+  <div class="warn">
+    هذه الصفحة لك وحدك. لا تعمل بلا رمز الوصول الذي يبقى في متصفحك.
+    <strong>لا تشارك الرمز مع أحد.</strong>
+  </div>
+
+  <details class="panel" id="settingsPanel">
+    <summary>الاتصال بالمستودع</summary>
+    <div class="row3">
+      <div class="field">
+        <label for="ghOwner">اسم المستخدم في GitHub</label>
+        <input id="ghOwner" class="mono" type="text" placeholder="اسم المستخدم في GitHub" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="ghRepo">اسم المستودع</label>
+        <input id="ghRepo" class="mono" type="text" placeholder="اسم المستودع" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="ghBranch">الفرع</label>
+        <input id="ghBranch" class="mono" type="text" value="main" autocomplete="off">
+      </div>
+    </div>
+    <div class="field">
+      <label for="ghToken">رمز الوصول</label>
+      <input id="ghToken" class="mono" type="password" placeholder="github_pat_…" autocomplete="off">
+      <div class="hint">
+        صلاحية <span class="mono">Contents: Read and write</span> على هذا المستودع وحده.
+      </div>
+    </div>
+    <div class="field">
+      <label style="display:flex;align-items:center;gap:9px;font-weight:400">
+        <input id="rememberToken" type="checkbox" style="width:auto" checked>
+        احفظ الرمز في هذا المتصفح
+      </label>
+    </div>
+    <div class="actions">
+      <button class="btn" id="testBtn">تحقّق من الاتصال</button>
+      <button class="btn btn-ghost" id="forgetBtn">امسح الرمز</button>
+    </div>
+  </details>
+
+  <section class="panel">
+    <h2>بيانات التدوينة</h2>
+    <p class="desc">ما تكتبه هنا يظهر أعلى صفحة التدوينة وفي قائمة التدوينات.</p>
+
+    <div class="field">
+      <label for="postPicker">ماذا تكتب؟</label>
+      <select id="postPicker"><option value="">— تدوينة جديدة —</option></select>
+    </div>
+
+    <div class="field">
+      <label for="fTitle">العنوان</label>
+      <input id="fTitle" type="text" placeholder="عنوان التدوينة">
+    </div>
+
+    <div class="row3">
+      <div class="field">
+        <label for="fDate">التاريخ</label>
+        <input id="fDate" class="mono" type="date">
+      </div>
+      <div class="field">
+        <label for="fTag">التصنيف</label>
+        <input id="fTag" type="text" list="tagList" placeholder="التصنيف — مثل: روايات قرأتها">
+        <datalist id="tagList"></datalist>
+      </div>
+      <div class="field">
+        <label for="fSlug">اسم الملف</label>
+        <input id="fSlug" class="mono" type="text" placeholder="اسم-الملف-بالإنجليزية">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="fPublisher">الناشر</label>
+      <input id="fPublisher" type="text" placeholder="اسم الناشر" value="خالد الحمدان">
+    </div>
+
+    <div class="row3">
+      <div class="field">
+        <label for="fAuthor">المؤلف</label>
+        <input id="fAuthor" type="text" placeholder="اسم المؤلف">
+      </div>
+      <div class="field">
+        <label for="fPages">عدد الصفحات</label>
+        <input id="fPages" type="number" min="1" placeholder="عدد الصفحات">
+      </div>
+      <div class="field">
+        <label>التقييم</label>
+        <div class="rating-pick" id="ratingPick">
+          <button type="button" data-v="1">★</button>
+          <button type="button" data-v="2">★</button>
+          <button type="button" data-v="3">★</button>
+          <button type="button" data-v="4">★</button>
+          <button type="button" data-v="5">★</button>
+          <span class="clear" id="ratingClear">امسح</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="fExcerpt">المقتطف <span class="muted" id="excerptCount"></span></label>
+      <textarea id="fExcerpt" placeholder="اتركه فارغًا ليُكتب تلقائيًا من أول الفقرات."></textarea>
+    </div>
+  </section>
+
+  <section style="margin-bottom:18px">
+    <div class="tools" id="tools">
+      <button type="button" data-block="p">نص</button>
+      <button type="button" data-block="h2">عنوان</button>
+      <button type="button" data-block="h3">عنوان أصغر</button>
+      <span class="sep"></span>
+      <button type="button" data-cmd="bold"><strong>ع</strong></button>
+      <button type="button" data-cmd="italic"><em>م</em></button>
+      <button type="button" data-cmd="underline" style="text-decoration:underline">خ</button>
+      <span class="sep"></span>
+      <button type="button" data-step="-1">تصغير</button>
+      <button type="button" data-step="1">تكبير</button>
+      <span class="sep"></span>
+      <button type="button" class="swatch" data-color="#7a2438" style="background:#7a2438" title="نبيذي"></button>
+      <button type="button" class="swatch" data-color="#a8813f" style="background:#a8813f" title="ذهبي"></button>
+      <button type="button" class="swatch" data-color="#2f6b45" style="background:#2f6b45" title="أخضر"></button>
+      <button type="button" class="swatch" data-color="#1f5673" style="background:#1f5673" title="أزرق"></button>
+      <input type="color" id="colorPick" value="#7a2438" title="لون آخر">
+      <button type="button" data-color="none">أزل اللون</button>
+      <span class="sep"></span>
+      <button type="button" data-align="right">يمين</button>
+      <button type="button" data-align="center">وسط</button>
+      <button type="button" data-align="left">يسار</button>
+      <span class="sep"></span>
+      <button type="button" data-quote="pullquote">اقتباس مميّز</button>
+      <button type="button" data-quote="quote-plain">اقتباس بسيط</button>
+      <button type="button" id="citeBtn">المصدر / الصفحة</button>
+      <button type="button" id="baytBtn">أبيات شعر</button>
+      <span class="sep"></span>
+      <button type="button" data-cmd="insertUnorderedList">قائمة</button>
+      <button type="button" data-cmd="insertOrderedList">مرقّمة</button>
+      <button type="button" id="linkBtn">رابط</button>
+      <button type="button" id="imgBtn">صورة من الجهاز</button>
+      <button type="button" id="imgUrlBtn">صورة برابط</button>
+      <button type="button" data-cmd="insertHorizontalRule">فاصل</button>
+      <span class="sep"></span>
+      <button type="button" id="clearFmtBtn">أزل التنسيق</button>
+      <button type="button" data-cmd="undo">تراجع</button>
+    </div>
+
+    <div class="stage">
+      <div id="headPreview" class="article-head"></div>
+      <div id="editor" class="prose" contenteditable="true" spellcheck="false"></div>
+    </div>
+    <input id="imgInput" type="file" accept="image/*" hidden>
+  </section>
+
+  <div id="ctxMenu"></div>
+
+  <div class="poem-modal" id="poemModal" role="dialog" aria-modal="true" aria-labelledby="poemTitle">
+    <div class="box">
+      <h3 id="poemTitle">أبيات شعرية</h3>
+      <p class="hint">اكتب الأبيات كما هي، كل شطر في سطر: الصدر ثم العجز تحته، وهكذا بيتًا بعد بيت — بنفس أسلوب منسّق الشعر. الشطر الأخير بلا عجز يتوسّط وحده.</p>
+      <textarea id="poemText" dir="rtl" spellcheck="false" placeholder="الصدر في السطر الأول&#10;والعجز في السطر الثاني&#10;وصدر البيت الثاني في الثالث…"></textarea>
+      <div class="actions">
+        <button type="button" class="btn" id="poemInsertBtn">أدرج الأبيات</button>
+        <button type="button" class="btn btn-ghost" id="poemCancelBtn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="panel">
+    <h2>النشر</h2>
+    <p class="desc">يرفع الصفحة ويحدّث الفهرس. يظهر الموقع محدَّثًا بعد دقيقة تقريبًا.</p>
+    <div class="actions">
+      <button class="btn" id="publishBtn">انشر على الموقع</button>
+      <button class="btn btn-ghost" id="saveDraftBtn">احفظ مسودة</button>
+      <button class="btn btn-ghost" id="clearBtn">ابدأ من جديد</button>
+      <button class="btn btn-ghost danger" id="deleteBtn" disabled>احذف التدوينة</button>
+      <span class="muted" id="draftInfo"></span>
+    </div>
+    <div class="log" id="log"></div>
+  </section>
+
+</main>
+
+<script src="assets/data/posts.js"></script>
+<script>window.__MANUAL_POSTS = (window.POSTS || []).slice();</script>
+<script src="assets/data/posts-blogger.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

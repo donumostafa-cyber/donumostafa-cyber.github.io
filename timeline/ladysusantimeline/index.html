@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>الخط الزمني لرواية الليدي سوزان | خالد الحمدان</title>
+<meta name="description" content="استعراض تفاعلي لرسائل رواية «الليدي سوزان» لجاين أوستن: مسار الرسائل وشبكة الشخصيات والخاتمة.">
+<link rel="canonical" href="https://khalidreads.github.io/timeline/ladysusantimeline/">
+<meta property="og:site_name" content="خالد الحمدان — مدونة قراءات">
+<meta property="og:type" content="website">
+<meta property="og:title" content="الخط الزمني لرواية الليدي سوزان | خالد الحمدان">
+<meta property="og:description" content="استعراض تفاعلي لرسائل رواية «الليدي سوزان» لجاين أوستن: مسار الرسائل وشبكة الشخصيات والخاتمة.">
+<meta property="og:url" content="https://khalidreads.github.io/timeline/ladysusantimeline/">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:image" content="https://khalidreads.github.io/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fdfaf4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/timeline.css">
+</head>
+
+<body data-root="../../" data-page="timeline">
+<header id="siteHeader"><noscript><nav class="wrap" aria-label="أقسام الموقع" style="padding:16px 20px;font-size:15px"><a href="../../">الرئيسية</a> · <a href="../../archive/">كل التدوينات</a> · <a href="../../library/">مكتبتي</a> · <a href="../../poetry/">منسّق الشعر</a> · <a href="../../timeline/">الخطوط الزمنية</a></nav></noscript></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <span class="eyebrow">رواية رسائل · جاين أوستن</span>
+    <h1>الخط الزمني لرواية الليدي سوزان</h1>
+    <p class="lede">مسار الرسائل، وتحولات الشخصيات، والأماكن التي تحرّك منها السرد.</p>
+  </div>
+
+  <div class="stat-row">
+    <div><b id="statLetters">—</b><span>رسالة</span></div>
+    <div><b id="statSenders">—</b><span>مرسلون</span></div>
+    <div><b id="statRecipients">—</b><span>مستلمون</span></div>
+    <div><b id="statPlaces">—</b><span>أماكن إرسال</span></div>
+  </div>
+
+  <section class="card story-controls" aria-label="التنقل الزمني">
+    <div>
+      <div class="range-wrap">
+        <label for="letterRange"><b>تقدّم في الرواية</b></label>
+        <input id="letterRange" type="range" min="1" max="41" value="41">
+        <span id="rangeNumber" class="range-number">41 / 41</span>
+      </div>
+      <div class="story-progress"><i id="storyProgressFill" style="width:100%"></i></div>
+    </div>
+    <div class="phase-strip" id="phaseStrip">
+      <button class="phase" data-from="1" data-to="10"><b>الوصول إلى تشرشل</b><span>1–10</span></button>
+      <button class="phase" data-from="11" data-to="20"><b>اشتداد المكيدة</b><span>11–20</span></button>
+      <button class="phase" data-from="21" data-to="30"><b>تمرد فريدريكا</b><span>21–30</span></button>
+      <button class="phase active" data-from="31" data-to="41"><b>انكشاف الخداع</b><span>31–41</span></button>
+    </div>
+  </section>
+
+  <section class="toolbar" aria-label="أدوات التصفية">
+    <input id="search" type="search" placeholder="ابحث في الشخصيات أو الموضوعات…">
+    <select id="senderFilter" aria-label="تصفية بالمرسل"><option value="">كل المرسلين</option></select>
+    <select id="recipientFilter" aria-label="تصفية بالمرسل إليه"><option value="">كل المرسل إليهم</option></select>
+    <select id="placeFilter" aria-label="تصفية بالمكان"><option value="">كل الأماكن</option></select>
+    <button id="reset">إعادة الضبط</button>
+  </section>
+
+  <section class="section-grid" id="timelineSection">
+    <div class="card">
+      <h2>حركة الرسائل زمنيًا</h2>
+      <p class="desc">كل بطاقة تمثل رسالة بحسب ترتيبها في الرواية. اضغط البطاقة لقراءتها كاملة.</p>
+      <div id="timeline" class="timeline"></div>
+      <div id="empty" class="empty">لا توجد نتائج مطابقة.</div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <h2>أكثر الشخصيات إرسالًا</h2>
+        <p class="desc">عدد الرسائل التي أرسلتها كل شخصية.</p>
+        <div id="senderChart" class="chart"></div>
+      </div>
+      <div class="card">
+        <h2>الأماكن الأكثر حضورًا</h2>
+        <p class="desc">توزيع الرسائل بحسب مكان الإرسال.</p>
+        <div id="placeChart" class="chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card characters-card" id="characters">
+    <h2>شبكة الشخصيات والمراسلات</h2>
+    <p class="desc">حجم العقدة يعكس كثافة حضور الشخصية. اضغط على أي شخصية لعرض بطاقتها وعزل رسائلها.</p>
+    <div class="character-layout">
+      <div id="network" class="network" aria-label="شبكة العلاقات"></div>
+      <aside id="profilePanel" class="profile-panel"></aside>
+    </div>
+  </section>
+
+  <section class="card table-card" id="lettersTable">
+    <div class="table-head">
+      <div>
+        <h2>جدول الرسائل</h2>
+        <p class="desc" style="margin:3px 0 0">اضغط على عنوان العمود للفرز.</p>
+      </div>
+      <span id="visibleCount" class="count-badge">—</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-key="id">#</th>
+            <th data-key="sender">المرسل</th>
+            <th data-key="subject">الموضوع</th>
+            <th data-key="recipient">المرسل إليه</th>
+            <th data-key="place">مكان الإرسال</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ending-card" id="ending" aria-labelledby="ending-title">
+    <span class="ending-kicker">◆ ما بعد الرسالة الحادية والأربعين</span>
+    <h2 id="ending-title">النهاية</h2>
+    <p class="ending-text">
+      ذهبت فريدريكا إلى بيت عمّها في تشرشِل، وعادت الليدي سوزان إلى لندن، ثم تزوّجت السير جيمس
+      مارتن؛ وهو الرجل الذي كانت السيدة مينوارنج ترغب في الزواج منه بعد طلاقها من زوجها بسبب
+      علاقته بالليدي سوزان. وهكذا فرّقت الليدي سوزان بين السيد مينوارنج وزوجته دون أن تتزوجه،
+      ثم تزوجت هي جيمس مارتن الذي كانت السيدة مينوارنج تريده. ومع مرور الوقت خفّت مراسلات
+      الليدي سوزان إلى ابنتها حتى توقفت، في حين تزوّج ريجنالد دي كورسي فريدريكا.
+    </p>
+    <div class="ending-outcomes" aria-label="مصائر الشخصيات">
+      <div class="outcome"><b>الليدي سوزان</b><span>عادت إلى لندن وتزوّجت السير جيمس مارتن.</span></div>
+      <div class="outcome"><b>فريدريكا</b><span>استقرّت في تشرشِل، ثم تزوّجت ريجنالد دي كورسي.</span></div>
+      <div class="outcome"><b>السيدة مينوارنج</b><span>خسرت زوجها وجيمس مارتن معًا بسبب تدبير الليدي سوزان.</span></div>
+    </div>
+  </section>
+
+  <div class="related" style="background:var(--paper);border:1px dashed var(--line);border-radius:var(--radius);padding:18px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+    <p style="margin:0;flex:1 1 260px;color:var(--ink-soft);font-size:15.5px">قراءتي للرواية كاملةً في تدوينة منفصلة.</p>
+    <a class="btn btn-ghost" href="../../posts/lady-susan/">اقرأ التدوينة</a>
+  </div>
+</main>
+
+<div class="detail-drawer" id="detailDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+  <article class="drawer-card">
+    <div class="drawer-top">
+      <div>
+        <span class="num" id="drawerNum"></span>
+        <h3 id="drawerTitle"></h3>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="إغلاق">×</button>
+    </div>
+    <div class="drawer-route" id="drawerRoute"></div>
+    <p class="drawer-subject" id="drawerSubject"></p>
+    <div class="drawer-tags" id="drawerTags"></div>
+  </article>
+</div>
+
+<footer id="siteFooter"></footer>
+
+<script src="../../assets/js/site.js"></script>
+<script src="../../assets/data/letters.js"></script>
+<script src="../../assets/js/timeline.js"></script>
+</body>
+</html>

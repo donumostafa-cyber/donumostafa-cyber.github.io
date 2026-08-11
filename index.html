@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>خالد الحمدان | مدونة قراءات</title>
+<meta name="description" content="مدونة قراءات: تدوينات عن الكتب، ومكتبة مقروءاتي، وأمور جانبية للشعر والروايات.">
+<link rel="canonical" href="https://khalidreads.github.io/">
+<meta property="og:site_name" content="خالد الحمدان — مدونة قراءات">
+<meta property="og:type" content="website">
+<meta property="og:title" content="خالد الحمدان | مدونة قراءات">
+<meta property="og:description" content="مدونة قراءات: تدوينات عن الكتب، ومكتبة مقروءاتي، وأمور جانبية للشعر والروايات.">
+<meta property="og:url" content="https://khalidreads.github.io/">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:image" content="https://khalidreads.github.io/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fdfaf4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/blog.css">
+</head>
+
+<body data-root="" data-page="blog">
+<header id="siteHeader"><noscript><nav class="wrap" aria-label="أقسام الموقع" style="padding:16px 20px;font-size:15px"><a href="">الرئيسية</a> · <a href="archive/">كل التدوينات</a> · <a href="library/">مكتبتي</a> · <a href="poetry/">منسّق الشعر</a> · <a href="timeline/">الخطوط الزمنية</a></nav></noscript></header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow">خالد الحمدان · مدونة قراءات</span>
+    <div class="bayt">
+      <span class="sadr">ومن راءَ مني خصلةً لا يُحِبُّها</span>
+      <span class="sep">✦</span>
+      <span class="ajuz">فلستُ على كسبي رضاهُ بجاهدِ</span>
+    </div>
+    <div class="bayt-poet">بيت من دفتري</div>
+    <p class="hero-lede">
+      هنا أكتب عمّا أقرأ: انطباعات وملاحظات وأدوات صغيرة أصنعها وأنا ألعب مع الكتب.
+      المدونة هي الباب، وما تحتها أمور جانبية تفتح كلٌّ منها على شيء مختلف.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost" href="library/">تصفّح مكتبتي</a>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <h2>آخر التدوينات</h2>
+    <span class="search-count" id="latestPostsCount"></span>
+    <a class="count" href="archive/">كل التدوينات ←</a>
+  </div>
+  <div class="search-box">
+    <input id="postSearch" type="search" placeholder="ابحث في التدوينات…" aria-label="بحث في التدوينات">
+  </div>
+  <div class="post-list" id="latestPosts"></div>
+
+  <div class="rule"><span>الصفحات الجانبية</span></div>
+
+  <div class="cards">
+    <a class="card-link" href="library/">
+      <h3>مكتبتي</h3>
+      <p>سجل ما قرأته وما أنوي قراءته، بتقييماتي ومراجعاتي كاملة. يمكن البحث فيها والفرز بالتقييم أو التاريخ.</p>
+      <span class="card-more">افتح المكتبة ←</span>
+    </a>
+    <a class="card-link" href="timeline/">
+      <h3>الخط الزمني لـ«الليدي سوزان»</h3>
+      <p>إحدى وأربعون رسالة مرتبة كما وردت في الرواية، مع شبكة الشخصيات ومصائرها في الخاتمة.</p>
+      <span class="card-more">افتح الخط الزمني ←</span>
+    </a>
+    <a class="card-link" href="poetry/">
+      <h3>منسّق الشعر العربي</h3>
+      <p>أداة تصفّ القصيدة صدرًا وعجزًا على صفحة نظيفة، وتصدّرها صورةً أو ملف PDF جاهزًا للطباعة.</p>
+      <span class="card-more">افتح المنسّق ←</span>
+    </a>
+  </div>
+
+</main>
+
+<footer id="siteFooter"></footer>
+
+<script src="assets/data/posts.js"></script>
+<script src="assets/data/posts-blogger.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+  bindSearch('postSearch', 'latestPosts');
+  renderPosts('latestPosts', 3);
+</script>
+</body>
+</html>
