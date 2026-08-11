@@ -1,12 +1,21 @@
-
+/* ============================================================
+   فهرس التدوينات.
+   يُحدَّث تلقائيًا من لوحة الكتابة (admin.html)،
+   ويمكن تحريره يدويًا بنفس الصيغة.
+   ============================================================ */
 
 window.POSTS = [
   {
     title: 'مراجعة رواية: الليدي سوزان لجاين أوستن',
-    date: '2026-08-05',
+    date: '2026-08-06',
     tag: 'روايات قرأتها',
     url: 'posts/lady-susan/',
     image: 'https://blogger.googleusercontent.com/img/a/AVvXsEg5_mJHrZB2wWgUts4eCqUVfNxlMOhDwHptA-Rs1cPuIGrGF3IWd1ulKUw5e7Anoq7T0Z7KjpT4Bwgp5IM3yvj3w-wLC2d1DbvNQBaNIMJMbBewSnDdo4IS7TT2lLt8KhiYyVLYuoJfe4w_EcvTsjI7YBwpGC3D3usMonKENhaKwx3Yz9EpTEBsLuqJiTQ',
+    author: 'جَاين أوستن',
+    pages: '116',
+    rating: 1,
+    publisher: 'خالد الحمدان',
+    labels: ['روايات قرأتها'],
     excerpt: 'رواية رسائل ظريفة وغريبة، طوتها جاين أوستن وأهملتها، فنُشرت بعد موتها بخمسين عامًا.'
   },
   {
@@ -15,5 +24,5 @@ window.POSTS = [
     tag: 'ترجماتي',
     url: 'posts/7-5-2026-k/',
     excerpt: 'استسلم في صُبحٍ خلت فيه الشوارع، كنتُ أقصد محطة القطار إذ حاذيت برج الساعة فقارنتها بساعة معصمي، فوجدتُني تأخرتُ جدًا عما قدّرت، فارتبكت وأسرعتُ غير أن الصدمة…'
-  }
+  },
 ];
