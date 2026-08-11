@@ -1,5 +1,3 @@
-
-
 (function () {
   var $ = function (id) { return document.getElementById(id); };
 
@@ -22,6 +20,7 @@
   var fontSample = $('fontSample');
 
   var VERSES_PER_PAGE = 13;
+  var MOBILE_QUERY = '(max-width:900px)';
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -61,6 +60,13 @@
     return bayt;
   }
 
+  function wrapInFrame(page) {
+    var frame = document.createElement('div');
+    frame.className = 'page-frame';
+    frame.appendChild(page);
+    return frame;
+  }
+
   function render() {
     document.documentElement.style.setProperty('--sheet-bg', bgColor.value);
     document.documentElement.style.setProperty('--sheet-ink', textColor.value);
@@ -82,7 +88,8 @@
       blank.className = 'paper-page';
       blank.style.fontFamily = font;
       blank.innerHTML = '<div class="empty-poem">اكتب القصيدة في الحقل المجاور لتظهر هنا.</div>';
-      previewPages.appendChild(blank);
+      previewPages.appendChild(wrapInFrame(blank));
+      scalePreviewPages();
       return;
     }
 
@@ -126,7 +133,38 @@
         page.appendChild(poet);
       }
 
-      previewPages.appendChild(page);
+      previewPages.appendChild(wrapInFrame(page));
+    }
+
+    scalePreviewPages();
+  }
+
+  function scalePreviewPages() {
+    var isMobile = window.matchMedia(MOBILE_QUERY).matches;
+    var frames = previewPages.querySelectorAll('.page-frame');
+
+    for (var f = 0; f < frames.length; f++) {
+      var frame = frames[f];
+      var page = frame.querySelector('.paper-page');
+      if (!page) continue;
+
+      if (!isMobile) {
+        page.style.transform = '';
+        frame.style.height = '';
+        continue;
+      }
+
+      page.style.transform = 'none';
+      var naturalWidth = page.offsetWidth;
+      var naturalHeight = page.offsetHeight;
+      if (!naturalWidth) continue;
+
+      var availableWidth = frame.clientWidth;
+      var scale = availableWidth / naturalWidth;
+      if (!isFinite(scale) || scale <= 0) scale = 1;
+
+      page.style.transform = 'scale(' + scale + ')';
+      frame.style.height = Math.ceil(naturalHeight * scale) + 'px';
     }
   }
 
@@ -136,6 +174,16 @@
     el.addEventListener('input', render);
     el.addEventListener('change', render);
   });
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(scalePreviewPages, 120);
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scalePreviewPages).catch(function () {});
+  }
 
   
   function isIOSDevice() {
@@ -156,6 +204,8 @@
     clone.style.background = bgColor.value;
     clone.style.color = textColor.value;
     clone.style.fontFamily = '"' + fontFamily.value + '", serif';
+    clone.style.transform = 'none';
+    clone.style.transformOrigin = '';
     document.body.appendChild(clone);
     return clone;
   }
