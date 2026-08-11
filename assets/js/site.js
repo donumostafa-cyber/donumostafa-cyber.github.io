@@ -1,5 +1,3 @@
-
-
 (function () {
   var NAV = [
     { id: 'blog',     label: 'الرئيسية',        href: '' },
@@ -167,11 +165,13 @@
         ? '<div class="post-thumb"><img src="' + esc(imgSrc(p.image)) + '" alt="" loading="lazy" decoding="async"></div>'
         : '';
 
+      var meta = (p.publisher ? esc(p.publisher) + ' | ' : '') + formatDate(p.date);
+
       return '<article class="post-item">' +
         '<a class="post-link' + (thumb ? ' has-thumb' : '') + '" href="' + root + p.url + '">' +
           '<div class="post-text">' +
-            '<div class="post-date">' + formatDate(p.date) + stars + '</div>' +
             '<h3 class="post-title">' + esc(p.title) + '</h3>' +
+            '<div class="post-date">' + meta + stars + '</div>' +
             (byline.length ? '<div class="post-byline">' + byline.join(' · ') + '</div>' : '') +
             '<p class="post-excerpt">' + esc(p.excerpt) + '</p>' +
             '<span class="tag">' + esc(p.tag) + '</span>' +
