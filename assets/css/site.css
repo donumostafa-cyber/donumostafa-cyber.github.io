@@ -145,8 +145,8 @@ h3{font-family:var(--literary);font-size:22px}
   padding:12px 0;
 }
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex:0 0 auto}
-.brand-name{font-family:var(--display);font-size:23px;line-height:1.1}
-.brand-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase}
+.brand-name{font-family:var(--display);font-size:23px;line-height:1.1;margin-top:12px;display:inline-block}
+.brand-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-faint);text-transform:uppercase;margin-top:-3px;display:inline-block}
 
 .nav{margin-inline-start:auto;display:flex;gap:4px;align-items:center}
 .nav a{
