@@ -183,6 +183,7 @@ th{
   padding:13px;text-align:right;cursor:pointer;font-size:15px;
 }
 td{padding:13px;border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.8;font-size:15.5px}
+th:first-child,td:first-child{white-space:nowrap;overflow-wrap:normal;width:1%}
 tbody tr:nth-child(even){background:var(--paper-2)}
 tbody tr:hover{background:var(--blossom-pale)}
 .count-badge{
