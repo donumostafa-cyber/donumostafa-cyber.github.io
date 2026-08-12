@@ -76,6 +76,19 @@ window.POSTS = [
     excerpt: 'ديوان سلامة بن جندلٍ السعديّ شاعرٌ جاهلي، جعله ابن سلّام في الطبقة السابعة، وهي طبقة شعراء مُجيدين مُقلّين، شِعرُهم قليل لكنه غايةٌ في الجودة والإحكام، وهم: سلامة…'
   },
   {
+    title: 'مراجعة مانجا: أسطورة زيلدا: أوكارينا الزمن ج٢',
+    date: '2026-03-12',
+    tag: 'روايات قرأتها',
+    url: 'posts/the-legend-of-zelda-ocarina-of-time-manga-part-2-review/',
+    image: '/assets/img/posts/the-legend-of-zelda-ocarina-of-time-manga-part-2-review-mspo48z0.webp',
+    author: 'أكيرا هِيميكاوا',
+    pages: '189',
+    rating: 3,
+    publisher: 'خالد الحمدان',
+    labels: ['روايات قرأتها'],
+    excerpt: 'The Legend of ZELDA Ocarina of Time p.2 يظهر في هذا الجزء شِيك، وهو شخصية غامضة، عميل مزدوج يوجه لينك ويتجسس عليه لصالح غانوندورف. وفيه يكمل تحرير الحكماء من تحكم…'
+  },
+  {
     title: 'مراجعة مانجا: أسطورة زيلدا: أوكارينا الزمن ج١',
     date: '2026-02-16',
     tag: 'روايات قرأتها',
