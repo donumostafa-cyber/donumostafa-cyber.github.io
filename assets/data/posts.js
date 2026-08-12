@@ -68,7 +68,7 @@ window.POSTS = [
     tag: 'كتب قرأتها',
     url: 'posts/salama-bin-jandal-al-saadi-review/',
     image: '/assets/img/posts/2026-08-tadwina-msnzxmze.webp',
-    author: 'صنعة أبي العباس الأحول',
+    author: 'فخر الدين قباوة',
     pages: '261',
     rating: 3,
     publisher: 'خالد الحمدان',
