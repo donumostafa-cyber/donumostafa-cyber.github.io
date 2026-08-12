@@ -76,6 +76,18 @@ window.POSTS = [
     excerpt: 'ديوان سلامة بن جندلٍ السعديّ شاعرٌ جاهلي، جعله ابن سلّام في الطبقة السابعة، وهي طبقة شعراء مُجيدين مُقلّين، شِعرُهم قليل لكنه غايةٌ في الجودة والإحكام، وهم: سلامة…'
   },
   {
+    title: 'مراجعة مانجا: أسطورة زيلدا: أوكارينا الزمن ج١',
+    date: '2026-02-16',
+    tag: 'روايات قرأتها',
+    url: 'posts/the-legend-of-zelda-ocarina-of-time-manga-part-1-review/',
+    image: '/assets/img/posts/the-legend-of-zelda-ocarina-of-time-manga-part-1-review-mspnp924.webp',
+    author: 'أكيرا هِيميكاوا',
+    rating: 4,
+    publisher: 'خالد الحمدان',
+    labels: ['روايات قرأتها'],
+    excerpt: 'The Legend of ZELDA Ocarina of Time p.1 الجزء الأول من مانجا (أسطورة زيلدا: أوكارينا الزمن) وهي جزءان. في الأصل هذه لعبة صدرت عام ١٩٩٨ على جهاز نينتيندو٦٤، من تصميم…'
+  },
+  {
     title: 'مراجعة رواية: شيطنة - بولغاكوف',
     date: '2026-01-24',
     tag: 'روايات قرأتها',
