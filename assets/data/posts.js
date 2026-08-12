@@ -142,7 +142,7 @@ window.POSTS = [
   {
     title: 'ليلة السأم الخلّاقة',
     date: '2025-06-19',
-    tag: 'تدوينة',
+    tag: 'مقالة',
     url: 'posts/creative-night-of-boredom/',
     publisher: 'خالد الحمدان',
     labels: ['مقالة'],
