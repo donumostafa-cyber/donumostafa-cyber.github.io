@@ -55,7 +55,7 @@ window.POSTS = [
     tag: 'كتب قرأتها',
     url: 'posts/hatem-al-tai/',
     image: '/assets/img/posts/hatem-al-tai-msnzqd5n.webp',
-    author: 'تحقيق عادل سليمان جمال',
+    author: 'عادل سليمان جمال',
     pages: '279',
     rating: 3,
     publisher: 'خالد الحمدان',
