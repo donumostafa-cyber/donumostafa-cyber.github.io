@@ -133,9 +133,9 @@
     var unreadBooks = books.filter(function (b) { return b.shelf !== 'read'; });
     var rated = readBooks.filter(function (b) { return b.rating > 0; });
     var avg = rated.length ? rated.reduce(function (s, b) { return s + b.rating; }, 0) / rated.length : 0;
-    document.getElementById('statBooks').textContent = formatNumber(books.length);
-    document.getElementById('statRead').textContent = formatNumber(readBooks.length);
-    document.getElementById('statUnread').textContent = formatNumber(unreadBooks.length);
+    document.getElementById('statBooks').textContent = books.length;
+    document.getElementById('statRead').textContent = readBooks.length;
+    document.getElementById('statUnread').textContent = unreadBooks.length;
     document.getElementById('statRating').textContent = avg.toFixed(1);
   }
 
